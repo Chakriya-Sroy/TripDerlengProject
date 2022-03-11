@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Popular Place</title>
+  <style>
+      .cover{
+          background-image: url("./img/place-cover/PP_cover.jpg");
+      }
+      .picture{
+          background-image: url("./img/review/PP.jpg");
+      }
+  </style>
+</head>
+<body>
+    <section class="main">
+      <div class="cover">
+        <h1 class="title">Welcome to Phnom Penh</h1>
+      </div>
+      <div class="review">
+          <div class="picture"></div>
+          <div class="text">
+            <h1 class="text_title">Top reason to come</h1>
+            <p class="text_detail">Phnom Penh is the heartbeat of Cambodia. This sprawling capital, spread out beside the banks of both the Tonlé Sap and Mekong Rivers, is a city of wide central boulevards and skinny back alleys, where modern and old collide.The Royal Palace complex is the city's must-do, but for anyone interested in exploring Cambodia's 20th-century history, Phnom Penh is also a vital stop, for it is home to two of the country's most sobering sites.</p>
+          </div>
+      </div>
+    </section>
+    <section class="center">      
+        <div class="thing_to_do">
+          <button class="beck">&#8249;</button>
+          <button class="next">&#8250;</button>
+          <h1>Thing to do</h1>
+          <div class="slide">
+            <div class="caption">
+              <p>some text display here</p>
+            </div>
+            <div class="slide_pic">
+              <div  alt="picture" name="image" class="slide_img"></div>
+            </div>
+          </div>
+        </div>
+        <div class="food">
+          <h1>Food To Try</h1>
+            <ul>
+                <li>One more resturant</li>
+                <li>Eleven on kitchen</li>
+                <li>Brown coffee</li>
+                <li>Mails resturant/li>
+                <li>street food</li>
+            </ul>
+        </div>
+    </section>
+    <section class="last">
+      <h1>Find Hotel</h1>
+      <div class="list">
+          <div class="item">
+              <h1>Moly Resort</h1>
+              <button class="item_btn" id="1">Find in map</button>
+          </div>
+          <div class="item">
+            <h1>Sabay Beach</h1>
+            <button class="item_btn" id="2">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Nataya RoundHouses</h1>
+            <button class="item_btn" id="3">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Raing Phnom Bungalow</h1>
+            <button class="item_btn" id="4">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Eden eco village</h1>
+            <button class="item_btn" id="5">Find in map</button>
+        </div>
+      </div>
+    </section>
+    <script>
+        // For map part
+       const map=[  "https://goo.gl/maps/Mbbchiqf38R72Jxr8",
+            "https://goo.gl/maps/XMCvjahGtow6pyVB6",
+            "https://goo.gl/maps/merA2T8Ztpg3QPvy7",
+            "https://goo.gl/maps/4trSR9LLmmTPCMr28",
+            "https://goo.gl/maps/p3wfw1v1GQmjhqfS8"]
+       const item_btn=document.querySelectorAll('.item .item_btn');
+       console.log(item_btn)
+       item_btn.forEach(btn=>{
+           btn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            window.open(map[btn.id], "_self").focus();
+           })
+       })
+       // For slide part
+       const activities=[
+       "The highlight of Phnom Penh is the beautiful Royal Palace the seat and residence of Cambodia's royal family since the 1860s. The spired-roof pavilions of the complex are an excellent example of classic Khmer architecture. Both the Throne Hall area and the Silver Pagoda set within manicured gardens  are open to the public for visiting",
+            "The traditional Khmer building that houses the national collection. Inside, the dazzling array of ancient Khmer artistry, with more than 1,800 objects on display, is a must visit for anyone with an interest in Cambodian history.",
+            "one of the most relaxing ways to go sightseeing in the city is to take to the water. There are regular sunset cruise tourist boat departures from the riverfront between 5pm and 7.30pm, which head along the Tonlé Sap and Mekong Rivers.",
+            "Phnom Penh is decidedly flat. The only rise in the landscape here is the 27-meter-high hillock that is home to the temple of Wat Phnom. The first religious building on this spot is thought to have been constructed in the 14th century and has been rebuilt several times. This is one of the city's most important Buddhist temples and is often bustling with locals leaving offerings here and praying at the various shrines that surround the main sanctuary.",
+            "The distinctive domed building that holds the central Psar Thmei market was built in Art Deco style and dominates Phnom Penh's central city. There are excellent opportunities for soaking up a slice of local life here with the market's huge array of local produce on display and plenty of hustle and bustle.Everything is sold here."
+       ]
+       const activitiesImage=[
+       "./img/to-do/pp-thing-1-01.jpg",
+            "./img/to-do/pp-thing-2-01.jpg",
+            "./img/to-do/pp-thing-3-01.jpg",
+            "./img/to-do/pp-thing-4-01.jpg",
+            "./img/to-do/pp-thing-5-01.jpg"
+       ]
+       const div_slide=document.querySelector('.slide');
+       const slide_p=document.querySelector('.slide .caption p');
+       const demo_pic=document.querySelector('.slide .slide_pic .slide_img')
+       const btn_next=document.querySelector('.thing_to_do .next');
+       const btn_back=document.querySelector('.thing_to_do .beck');
+        slide_p.innerHTML=activities[0];
+        demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`
+        var j=0;
+        btn_next.addEventListener('click',()=>{ 
+            if(j>activities.length){
+                slide_p.innerHTML=activities[0];
+                demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`;
+                j=0;
+            }
+            slide_p.innerHTML=activities[j];
+            demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+            j=j+1;
+        })
+        btn_back.addEventListener('click',()=>{
+           if(j<0){
+                slide_p.innerHTML=activities[activities.length-1]
+                demo_pic.style.backgroundImage=`url(${activitiesImage[activities.length-1]})`;
+                j=activities.length-1;
+            }
+           slide_p.innerHTML=activities[j];
+           demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+           j=j-1;
+        })
+    </script>
+</body>
+</html>

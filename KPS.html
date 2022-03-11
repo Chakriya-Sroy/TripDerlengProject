@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Popular Place</title>
+  <style>
+      .cover{
+          background-image: url("./img/place-cover/kps.jpg");
+      }
+      .picture{
+          background-image: url("./img/review/KPS.jpg");
+      }
+  </style>
+</head>
+<body>
+    <section class="main">
+      <div class="cover">
+        <h1 class="title">Welcome to Kompong Som</h1>
+      </div>
+      <div class="review">
+          <div class="picture"></div>
+          <div class="text">
+            <h1 class="text_title">Top reason to come</h1>
+            <p class="text_detail">There's quite a lot of variety among the things to do in Sihanoukville. The coastal town is famous for having some of the best beaches in Cambodia, making it the getaway destination of choice for the city dwellers of Phnom Pehn. The beaches are many and the nightlife is vibrant. These elements combine to make Sihanoukville a popular place for people visiting the country.</p>
+          </div>
+      </div>
+    </section>
+    <section class="center">      
+        <div class="thing_to_do">
+          <button class="beck">&#8249;</button>
+          <button class="next">&#8250;</button>
+          <h1>Thing to do</h1>
+          <div class="slide">
+            <div class="caption">
+              <p>some text display here</p>
+            </div>
+            <div class="slide_pic">
+              <div  alt="picture" name="image" class="slide_img"></div>
+            </div>
+          </div>
+        </div>
+        <div class="food">
+          <h1>Food To Try</h1>
+            <ul>
+                <li>Starfish Bakery & Cafe</li>
+                <li>Sandan</li>
+                <li>Jin</li>
+                <li>Rendez vous restaurant</li>
+                <li>The secret garden bar & resturant</li>
+            </ul>
+        </div>
+    </section>
+    <section class="last">
+      <h1>Find Hotel</h1>
+      <div class="list">
+          <div class="item">
+              <h1>Ocean Delight Boutique Hotel</h1>
+              <button class="item_btn" id="1">Find in map</button>
+          </div>
+          <div class="item">
+            <h1>Queenco Hotel Casino</h1>
+            <button class="item_btn" id="2">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Independence Hotel By Dara</h1>
+            <button class="item_btn" id="3">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>The One Resort</h1>
+            <button class="item_btn" id="4">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Luna Resort Koh Rong</h1>
+            <button class="item_btn" id="5">Find in map</button>
+        </div>
+      </div>
+    </section>
+    <script>
+        // For map part
+       const map=[  "https://goo.gl/maps/HPtBz4gLgQsp6Xbr7",
+           "https://goo.gl/maps/CgoatPp3PK9zoDnQ8",
+           "https://goo.gl/maps/WfzKKib2MzkoTrim9",
+           "https://goo.gl/maps/WHBvVTvVUSxVhLVZ7",
+           "https://goo.gl/maps/J2JzkMgL1UnRyyvRA"]
+       const item_btn=document.querySelectorAll('.item .item_btn');
+       console.log(item_btn)
+       item_btn.forEach(btn=>{
+           btn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            window.open(map[btn.id], "_self").focus();
+           })
+       })
+       // For slide part
+       const activities=[
+       "If you like the beaches, you'll love Koh Rong and the surrounding islands. Just 26 km west of the city, they are pretty much the archetype of the desert island idyll, with pristine beaches, clear blue seas, vibrant coral reefs, jungle-covered hills and very little else.",
+            "Koh Rong Samloem is Koh Rong's stunning sister island. It is a peaceful relaxing destination with breathtaking scenery – Pristine white beaches, clear turquoise ocean waters, and a tropical jungle wilderness.",
+            "Otres Beach has a relaxed atmosphere, and caught the eye of Forbes this year, listed amongst the Top 22 Beaches in Asia. Most all of the beach restaurants serve seafood and more, but each place has its own unique flavor.",
+            "Snorkelling and scuba diving in Sihanoukville thrives because of the area's favourable topographical features. Offshore local waters are warm and the visibility is low but it is better to dive out by neighbouring islands and Condor Reef as visibility is superior there.",
+            "Tropical reefs, amazing sunset views and white private sandy beaches feature at Song Saa Private Island, spanning over Koh Ouen and Koh Bong islands in Sihanoukville."
+       ]
+       const activitiesImage=[
+            "./img/to-do/kps-thing-1-01.jpg",
+            "./img/to-do/kps-thing-2-01.jpg",
+            "./img/to-do/kps-thing-3-01.jpg",
+            "./img/to-do/kps-thing-4-01.jpg",
+            "./img/to-do/kps-thing-5-01.jpg"
+       ]
+       const div_slide=document.querySelector('.slide');
+       const slide_p=document.querySelector('.slide .caption p');
+       const demo_pic=document.querySelector('.slide .slide_pic .slide_img')
+       const btn_next=document.querySelector('.thing_to_do .next');
+       const btn_back=document.querySelector('.thing_to_do .beck');
+        slide_p.innerHTML=activities[0];
+        demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`
+        var j=0;
+        btn_next.addEventListener('click',()=>{ 
+            if(j>activities.length){
+                slide_p.innerHTML=activities[0];
+                demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`;
+                j=0;
+            }
+            slide_p.innerHTML=activities[j];
+            demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+            j=j+1;
+        })
+        btn_back.addEventListener('click',()=>{
+           if(j<0){
+                slide_p.innerHTML=activities[activities.length-1]
+                demo_pic.style.backgroundImage=`url(${activitiesImage[activities.length-1]})`;
+                j=activities.length-1;
+            }
+           slide_p.innerHTML=activities[j];
+           demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+           j=j-1;
+        })
+    </script>
+</body>
+</html>

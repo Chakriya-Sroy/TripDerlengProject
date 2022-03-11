@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Popular Place</title>
+  <style>
+      .cover{
+          background-image: url("./img/place-cover/kep.jpg");
+      }
+      .picture{
+          background-image: url("./img/review/Kep.jpg");
+      }
+  </style>
+</head>
+<body>
+    <section class="main">
+      <div class="cover">
+        <h1 class="title">Welcome to Kep</h1>
+      </div>
+      <div class="review">
+          <div class="picture"></div>
+          <div class="text">
+            <h1 class="text_title">Top reason to come</h1>
+            <p class="text_detail">Kep appears to be experiencing something of a renaissance, with several mid-range and luxury guesthouses and bungalows. The seafood is cheap, plentiful and delicious - particularly the quite famous crabs. Kep is also home to an extensive national park covering some mountains with deep green jungle.</p>
+          </div>
+      </div>
+    </section>
+    <section class="center">      
+        <div class="thing_to_do">
+          <button class="beck">&#8249;</button>
+          <button class="next">&#8250;</button>
+          <h1>Thing to do</h1>
+          <div class="slide">
+            <div class="caption">
+              <p>some text display here</p>
+            </div>
+            <div class="slide_pic">
+              <div  alt="picture" name="image" class="slide_img"></div>
+            </div>
+          </div>
+        </div>
+        <div class="food">
+          <h1>Food To Try</h1>
+            <ul>
+                <li>Veranda nature resort</li>
+                <li>Sailing club-knai bang chat</li>
+                <li>Holy crab</li>
+                <li>Kimly seafood restuarant</li>
+                <li>Mr Mab</li>
+            </ul>
+        </div>
+    </section>
+    <section class="last">
+      <h1>Find Hotel</h1>
+      <div class="list">
+          <div class="item">
+              <h1>Kep Bay Hotel & Resort</h1>
+              <button class="item_btn" id="1">Find in map</button>
+          </div>
+          <div class="item">
+            <h1>Botanica</h1>
+            <button class="item_btn" id="2">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Kep lodge</h1>
+            <button class="item_btn" id="3">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Sabay kep</h1>
+            <button class="item_btn" id="4">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Kep Bungalow/h1>
+            <button class="item_btn" id="5">Find in map</button>
+        </div>
+      </div>
+    </section>
+    <script>
+        // For map part
+       const map=[  "https://goo.gl/maps/HPtBz4gLgQsp6Xbr7",
+           "https://goo.gl/maps/CgoatPp3PK9zoDnQ8",
+           "https://goo.gl/maps/WfzKKib2MzkoTrim9",
+           "https://goo.gl/maps/WHBvVTvVUSxVhLVZ7",
+           "https://goo.gl/maps/J2JzkMgL1UnRyyvRA"]
+       const item_btn=document.querySelectorAll('.item .item_btn');
+       console.log(item_btn)
+       item_btn.forEach(btn=>{
+           btn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            window.open(map[btn.id], "_self").focus();
+           })
+       })
+       // For slide part
+       const activities=[
+       "The short stretch of imported white sand that makes up Kep beach is a popular spot during public holidays and weekends, filling up with Cambodians wading in the shallow waters or picnicking on crab and other snacks in the dappled shade.",
+           "For a slice of rustic island life, jump on one of the former fishing boats that takes visitors to the nearby island within about 30 minutes and spend the day – or night – on Koh Tonsay, or Rabbit Island. Boasting a small beach lined with basic bungalows and food shacks, this spot is a popular day-trip for locals.",
+           "No trip to Kep is complete without a visit to the crab market. Standing at the centre of the town’s action, the market is a hive of activity, especially in the early morning. As well as being the base for the fishermen and women who catch the town's famous crab, it is where the country's freshest seafood is flogged.",
+           "Sundowners at Knai Bang Chatt's Sailing Club are another essential for any trip to Kep. Overlooking the ocean, the former fisherman’s hut – that has been transformed into an upmarket chic hangout and water sports centre is the spot to watch the sunset with a classy cocktail in one hand.",
+           "The Led Zep Cafe is a nice cafe with a friendly atmosphere. It is the only restaurant located directly at the Kep National Park trek. The cafe, located above Vanna bungalows, has an open air balcony with a 180 degree view over Kep and the Gulf of Thailand. "
+       ]
+       const activitiesImage=[
+       "./img/to-do/kep-thing-1-01.jpg",
+            "./img/to-do/kep-thing-2-01.jpeg",
+            "./img/to-do/kep-thing-3-01.jpg",
+            "./img/to-do/kep-thing-4-01.jpg",
+            "./img/to-do/kep-thing-5-01.jpg"
+       ]
+       const div_slide=document.querySelector('.slide');
+       const slide_p=document.querySelector('.slide .caption p');
+       const demo_pic=document.querySelector('.slide .slide_pic .slide_img')
+       const btn_next=document.querySelector('.thing_to_do .next');
+       const btn_back=document.querySelector('.thing_to_do .beck');
+        slide_p.innerHTML=activities[0];
+        demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`
+        var j=0;
+        btn_next.addEventListener('click',()=>{ 
+            if(j>activities.length){
+                slide_p.innerHTML=activities[0];
+                demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`;
+                j=0;
+            }
+            slide_p.innerHTML=activities[j];
+            demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+            j=j+1;
+        })
+        btn_back.addEventListener('click',()=>{
+           if(j<0){
+                slide_p.innerHTML=activities[activities.length-1]
+                demo_pic.style.backgroundImage=`url(${activitiesImage[activities.length-1]})`;
+                j=activities.length-1;
+            }
+           slide_p.innerHTML=activities[j];
+           demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+           j=j-1;
+        })
+    </script>
+</body>
+</html>

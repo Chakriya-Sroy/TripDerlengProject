@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Popular Place</title>
+  <style>
+      .cover{
+          background-image: url("./img/place-cover/ps.jfif");
+      }
+      .picture{
+          background-image: url("./img/review/PS.jpg");
+      }
+  </style>
+</head>
+<body>
+    <section class="main">
+      <div class="cover">
+        <h1 class="title">Welcome to Posat-Phnom 1500</h1>
+      </div>
+      <div class="review">
+          <div class="picture"></div>
+          <div class="text">
+            <h1 class="text_title">Top reason to come</h1>
+            <p class="text_detail">Are you looking for mountains? Here you go:Phnom 1500 is located in Veal Veng District, Pursat province and about ~150km away from Sampov Meas Island. The long road trip surrounded by the mountains, the best place to release all the stress,and best for camping.</p>
+          </div>
+      </div>
+    </section>
+    <section class="center">      
+        <div class="thing_to_do">
+          <button class="beck">&#8249;</button>
+          <button class="next">&#8250;</button>
+          <h1>Thing to do</h1>
+          <div class="slide">
+            <div class="caption">
+              <p>some text display here</p>
+            </div>
+            <div class="slide_pic">
+              <div  alt="picture" name="image" class="slide_img"></div>
+            </div>
+          </div>
+        </div>
+        <div class="food">
+          <h1>Food To Try</h1>
+            <ul>
+                <li>For a relaxing seating area, Phnom 1500 is not yet set up a seating area for tourists. Besides Phnom 1500 has canteens but for the food ordering or food station and restaurant are not exist.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="last">
+      <h1>Find Hotel</h1>
+      <div class="list">
+          <div class="item">
+              <h1>Bopha Leak Klun</h1>
+              <button class="item_btn" id="1">Find in map</button>
+          </div>
+          <div class="item">
+            <h1>Bong Barang</h1>
+            <button class="item_btn" id="2">Find in map</button>
+        </div>
+      </div>
+    </section>
+    <script>
+        // For map part
+       const map=[  "https://goo.gl/maps/PQNYtFsNyjFuwggn7",
+            "https://goo.gl/maps/ZWZawsnZHpGBCver5"]
+       const item_btn=document.querySelectorAll('.item .item_btn');
+       console.log(item_btn)
+       item_btn.forEach(btn=>{
+           btn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            window.open(map[btn.id], "_self").focus();
+           })
+       })
+       // For slide part
+       const activities=[
+       "Phnom 1500 is in the category of the Mountain, Natural tourism site. Things to do, as well as the attractions of Phnom 1500 for tourists such as Seeing mountain view, Viewing sunset, Viewing sunrise, Having picnic, Trekking and more.",
+          "Tmor Da Toch Waterfall is in the category of the Waterfall, Natural tourism site. Things to do, as well as the attractions of Tumor Da Toch Waterfall for tourists such as Having picnic, Swimming, Seeing mountain view and more",
+          "have a coffee with the freshies view at Phnom coffee. Coffee shop on the mountains, the nature view and tasty drink. Don't forget here",
+          "for those who want to experience camping, you can try here at bong barang. You will love the mountain view and the greatest camping place."
+       ]
+       const activitiesImage=[
+       "./img/to-do/Ps-thing-1-02.jpeg",
+            "./img/to-do/Ps-thing-2-01.jpg",
+            "./img/to-do/Ps-thing-3-01.jfif",
+            "./img/to-do/ps-thing-4-01.jpg"
+       ]
+       const div_slide=document.querySelector('.slide');
+       const slide_p=document.querySelector('.slide .caption p');
+       const demo_pic=document.querySelector('.slide .slide_pic .slide_img')
+       const btn_next=document.querySelector('.thing_to_do .next');
+       const btn_back=document.querySelector('.thing_to_do .beck');
+        slide_p.innerHTML=activities[0];
+        demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`
+        var j=0;
+        btn_next.addEventListener('click',()=>{ 
+            if(j>activities.length){
+                slide_p.innerHTML=activities[0];
+                demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`;
+                j=0;
+            }
+            slide_p.innerHTML=activities[j];
+            demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+            j=j+1;
+        })
+        btn_back.addEventListener('click',()=>{
+           if(j<0){
+                slide_p.innerHTML=activities[activities.length-1]
+                demo_pic.style.backgroundImage=`url(${activitiesImage[activities.length-1]})`;
+                j=activities.length-1;
+            }
+           slide_p.innerHTML=activities[j];
+           demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+           j=j-1;
+        })
+    </script>
+</body>
+</html>

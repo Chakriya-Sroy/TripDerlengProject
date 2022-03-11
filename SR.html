@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Popular Place</title>
+  <style>
+      .cover{
+          background-image: url("./img/place-cover/sr.jpg");
+      }
+      .picture{
+          background-image: url("./img/review/SR.jpg");
+      }
+  </style>
+</head>
+<body>
+    <section class="main">
+      <div class="cover">
+        <h1 class="title">Welcome to Siem Reap</h1>
+      </div>
+      <div class="review">
+          <div class="picture"></div>
+          <div class="text">
+            <h1 class="text_title">Top reason to come</h1>
+            <p class="text_detail">Siem Reap is thriving. This is Cambodia's number one tourism destination, the grand temples of the Angkorian period sitting right on its doorstep. Everyone who arrives is here to see Angkor Wat, but the town's burgeoning popularity with travelers has led to a whole host of other attractions and activities opening up, providing some downtime from temple-hopping.Learn about the best places to visit and the most rewarding things to do here with our list of the top attractions in Siem Reap</p>
+          </div>
+      </div>
+    </section>
+    <section class="center">      
+        <div class="thing_to_do">
+          <button class="beck">&#8249;</button>
+          <button class="next">&#8250;</button>
+          <h1>Thing to do</h1>
+          <div class="slide">
+            <div class="caption">
+              <p>some text display here</p>
+            </div>
+            <div class="slide_pic">
+              <div  alt="picture" name="image" class="slide_img"></div>
+            </div>
+          </div>
+        </div>
+        <div class="food">
+          <h1>Food To Try</h1>
+            <ul>
+                <li>Street food around Angkor Wat</li>
+                <li>Local food at Beong Chhouk Bonteay Srey</li>
+                <li>Nom banh jok tek prohok</li>
+                <li>Chicken with rice at Angkor</li>
+                <li>Phnom kulen-eat lunch with nature</li>
+            </ul>
+        </div>
+    </section>
+    <section class="last">
+      <h1>Find Hotel</h1>
+      <div class="list">
+          <div class="item">
+              <h1>Angkor village resort</h1>
+              <button class="item_btn" id="1">Find in map</button>
+          </div>
+          <div class="item">
+            <h1>Courtyard by Marriott SR resort</h1>
+            <button class="item_btn" id="2">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Baby elephant boutique hotel</h1>
+            <button class="item_btn" id="3">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Lud d</h1>
+            <button class="item_btn" id="4">Find in map</button>
+        </div>
+        <div class="item">
+            <h1>Phnom kulen-eat lunch with nature</h1>
+            <button class="item_btn" id="5">Find in map</button>
+        </div>
+      </div>
+    </section>
+    <script>
+        // For map part
+       const map=[ "https://goo.gl/maps/Nkxt25TN33wmtNd16",
+                    "https://goo.gl/maps/c2zdWSPGhqmnQWeV8",
+                    "https://goo.gl/maps/C9zMSBeEzZzfpfwV7",
+                    "https://goo.gl/maps/Q81qWJXofBn7mEAx7",
+                    "https://goo.gl/maps/jr3dkEeU4kcmSdXN6" ]
+       const item_btn=document.querySelectorAll('.item .item_btn');
+       console.log(item_btn)
+       item_btn.forEach(btn=>{
+           btn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            window.open(map[btn.id], "_self").focus();
+           })
+       })
+       // For slide part
+       const activities=[
+            "Siem Reap's energetic and forever expanding tourist industry is all down to the fact that one of the world's most incredible tourist attractions sits next door.The main temple complex within the site is Angkor Wat.After Angkor Wat, head to the sprawling 10-square-kilometer Angkor Thom complex, where you'll find one of the most photogenic temples in the site.",
+            "Hiring your own transport is a great way to explore the surrounding countryside. You can rent a bicycle for $3-5 a day or a motorbike for $8 or $10 a day. You can tour around Siem Reap city, Explore the history and nature for a full day. Grab some drink and fruit for energy for the long day.",
+            "Phare Ponleu Selpak is a dazzling spectacle combining acrobatics, music, dance, circus slapstick, and a variety of other performance arts, and it's also for a good cause. This is a contemporary circus, with a story weaved through the performance, combining drama and comedy all into one show.",
+            "The central city area is home to some of the best souvenir shopping you'll find in the country, with both market stalls for great bargains and a whole host of plush boutiques for special gifts.",
+            "The feeling of suspense awaiting the first light of the new day gradually shines behind the temples, the beauty of nature combined with spiritual architecture gives you an indescribable feeling. Don’t forget the sunset view at Ta prohm temple and Angkor wat."
+       ]
+       const activitiesImage=[
+            "./img/to-do/sr-thing-1-01.jpg",
+            "./img/to-do/sr-thing-2-01.jpg",
+            "./img/to-do/sr-thing-3-01.jpg",
+            "./img/to-do/sr-thing-4-01.png",
+            "./img/to-do/sr-thing-5-01.jpg"
+       ]
+       const div_slide=document.querySelector('.slide');
+       const slide_p=document.querySelector('.slide .caption p');
+       const demo_pic=document.querySelector('.slide .slide_pic .slide_img')
+       const btn_next=document.querySelector('.thing_to_do .next');
+       const btn_back=document.querySelector('.thing_to_do .beck');
+        slide_p.innerHTML=activities[0];
+        demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`
+        var j=0;
+        btn_next.addEventListener('click',()=>{ 
+            if(j>activities.length){
+                slide_p.innerHTML=activities[0];
+                demo_pic.style.backgroundImage=`url(${activitiesImage[0]})`;
+                j=0;
+            }
+            slide_p.innerHTML=activities[j];
+            demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+            j=j+1;
+        })
+        btn_back.addEventListener('click',()=>{
+           if(j<0){
+                slide_p.innerHTML=activities[activities.length-1]
+                demo_pic.style.backgroundImage=`url(${activitiesImage[activities.length-1]})`;
+                j=activities.length-1;
+            }
+           slide_p.innerHTML=activities[j];
+           demo_pic.style.backgroundImage=`url(${activitiesImage[j]})`;
+           j=j-1;
+        })
+    </script>
+</body>
+</html>
