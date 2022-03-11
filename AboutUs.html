@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DerLeng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="fonts/jost/stylesheet.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/about.css">
+    <style>
+        .show_us{
+            height: 80vh;
+        }
+        .detail{
+            height: 300px;;
+           background-image: url(https://img.freepik.com/free-vector/travel-tourism-illustration-with-resort-sightseeing-elements_1284-30189.jpg?size=626&ext=jpg&ga=GA1.2.1550166562.1636675200);
+           background-repeat: none;
+           background-size: cover;
+           background-position: center;
+           position: relative;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .detail h1{
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .model_detail{
+            width: 700px;
+            height: 300px;
+            position: absolute;
+            top: 200px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+        .model_detail h1{
+            margin-top: 50px;
+            text-align: center;
+        }
+        .model_detail h2{
+            margin-left: 50px;
+            text-align: left;
+            line-height: 1.5;
+            font-size: 20px;
+            font-weight: 500px;
+            margin-bottom: 10px;
+        }
+        .model_detail p{
+            margin-left: 50px;
+            line-height: 1.5;
+            text-indent: 70px;
+            margin-right: 50px;
+        }
+        .meet_team{
+            height:100vh;
+        }
+        .section{
+            margin-left: 100px;
+            margin-right: 100px;
+
+        }
+        .meet_the_team{
+            margin-bottom: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+        <!-- Navbar goes here -->
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex justify-between">
+                    <div class="flex space-x-7">
+                        <div>
+                            <!-- Website Logo -->
+                            <a href="index.html" class="flex items-center py-4 px-2">
+                                <!-- <img src="logo.png" alt="Logo" class="h-8 w-8 mr-2"> -->
+                                <span class="font-semibold text-gray-500 text-lg">Der leng</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Secondary Navbar items -->
+                    <div class="hidden md:flex items-center space-x-3 ">
+                        <div class="hidden md:flex items-center space-x-1">
+                            <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a>
+                            <a href="" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Services</a>
+                            <a href="about.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a>
+                            <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">FAQ</a>
+                            <a href="" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact Us</a>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button class="outline-none mobile-menu-button">
+                        <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+                            x-show="!showMenu"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu -->
+            <div class="hidden mobile-menu">
+                <ul class="">
+                    <li class="active"><a href="index.html" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
+                    <li><a href="#services" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Services</a></li>
+                    <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</a></li>
+                    <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">FAQ</a></li>
+                    <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+        </header>
+        <section class="show_us">
+            <div class="detail">
+                <div class="model_detail">
+                    <h1>About us</h1>
+                    <h2>We are Derleng</h2>
+                        <p>
+                    Our goal is to introduce both local and international tourists to new and upcoming travel destinations and restaurants 
+                    by offering reviews, directions, menus and estimate price for each location. 
+                </p>
+                </div>
+            </div>
+      </section>
+      <div class="meet_team">
+        <div class = "section"> 
+            <div class = "container">
+                <div class ="content-team">
+                    <div class="content">
+                        <h1 class="meet_the_team">Meet The Team</h1>
+                    </div>
+                    <div class="container-cards">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="our-team">
+                                <div class="picture">
+                                    <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                                </div>
+                            <div class="team-content">
+                                <h3 class="name">Sophavong Heng</h3>
+                                <h4 class="title">Web Developer</h4>
+                            </div>
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/cora.v4v" class="fab fa-facebook" ></a></li>
+                                    <li><a href="https://twitter.com/kokoro_v4v" class="fab fa-twitter" ></a></li>
+                                    <li><a href="" class="fab fa-google-plus" ></a></li>
+                                    <li><a href="www.linkedin.com/in/cora-veng" class="fab fa-linkedin" ></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="our-team">
+                                <div class="picture">
+                                    <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                                </div>
+                            <div class="team-content">
+                                <h3 class="name">Chakriya Sroy</h3>
+                                <h4 class="title">Web Developer</h4>
+                            </div>
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/cora.v4v" class="fab fa-facebook" ></a></li>
+                                    <li><a href="" class="fab fa-twitter" ></a></li>
+                                    <li><a href="" class="fab fa-google-plus" ></a></li>
+                                    <li><a href="" class="fab fa-linkedin" ></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="our-team">
+                                <div class="picture">
+                                    <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                                </div>
+                            <div class="team-content">
+                                <h3 class="name">Seakliv Khou</h3>
+                                <h4 class="title">Web Developer</h4>
+                            </div>
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/cora.v4v" class="fab fa-facebook" ></a></li>
+                                    <li><a href="" class="fab fa-twitter" ></a></li>
+                                    <li><a href="" class="fab fa-google-plus" ></a></li>
+                                    <li><a href="" class="fab fa-linkedin" ></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="our-team">
+                                <div class="picture">
+                                    <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+                                </div>
+                            <div class="team-content">
+                                <h3 class="name">Cora Veng</h3>
+                                <h4 class="title">Web Developer</h4>
+                            </div>
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/cora.v4v" class="fab fa-facebook" ></a></li>
+                                    <li><a href="" class="fab fa-twitter" ></a></li>
+                                    <li><a href="" class="fab fa-google-plus" ></a></li>
+                                    <li><a href="" class="fab fa-linkedin" ></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="container">
+                <div class ="recruitment">
+                    <div class="content">
+                        <h1>Want to Join?</h1><br>
+                        <p> 
+                           <h2>We're not recruiting at the moment, please check 
+                            back later.</h2> 
+                        </p> 
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+      </div>
+</body>
+</html>
